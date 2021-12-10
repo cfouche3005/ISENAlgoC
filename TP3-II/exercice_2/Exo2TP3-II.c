@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-unsigned int iterativeFactorial(unsigned int n); 
+unsigned int  iterativeFibonacci(unsigned int n); 
 
 unsigned int recursiveFibonacci(unsigned int n);
 
@@ -26,7 +26,7 @@ unsigned int recursiveFibonacci(unsigned int n){
 	}
 }
 
-unsigned int iterativeFactorial(unsigned int n) { 
+unsigned int  iterativeFibonacci(unsigned int n) { 
 	int a = 0;
 	int b = 1; 
 	int i; 
