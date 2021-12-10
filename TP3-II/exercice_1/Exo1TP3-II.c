@@ -5,7 +5,7 @@ unsigned int iterativeFactorial(unsigned int n);
 unsigned int recursiveFactorial(unsigned int n);
 
 int main (){
-	int x = 5;
+	int x = 10;
 	printf("%d\n",iterativeFactorial(x));
 	printf("%d\n",recursiveFactorial(x));
 }
@@ -13,22 +13,20 @@ int main (){
 unsigned int iterativeFactorial(unsigned int n){
 	int b;
 	b=n;
-	for (int i = 0; i < count; i++)
-	{
-		/* code */
-	}
-	{	
+	do{	
 		n=n-1;
 		b=b*n;
 	}
+	while(n>1);
+	return b;
 }
 
 unsigned int recursiveFactorial(unsigned int n){
 	if(n==1){
-		return 1;
+		return 1 * n ;
 	}
 	else
 {
-	return recursiveFactorial(n-1);
+	return n = n * recursiveFactorial(n-1);
 }
 }
