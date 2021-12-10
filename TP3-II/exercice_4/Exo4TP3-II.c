@@ -10,5 +10,10 @@ int main () {
 }
 
 unsigned int recursiveBinomialCoefficient(unsigned int n, unsigned int k) {
-   return recursiveBinomialCoefficient(n-1,k-1) + recursiveBinomialCoefficient(n-1,k);
+    if(k==0 || k==n ){
+		return 1;
+	}else{
+        return recursiveBinomialCoefficient(n-1,k-1) + recursiveBinomialCoefficient(n-1,k);
+        }
+   
 }
