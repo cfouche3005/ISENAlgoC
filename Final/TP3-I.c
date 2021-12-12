@@ -4,8 +4,11 @@
 
 /*Déclaration Fonction*/
 
+/*ex1*/
 void punishment1();
+/*ex2*/
 void punishment2();
+/*ex3*/
 float rectangleArea(float L, float l);
 /*ex4*/
 int isRightAngled(float a, float b, float c);
@@ -13,7 +16,7 @@ int isIsosceles(float a, float b, float c);
 int isEquilateral(float a, float b, float c);
 int isScalene(float a, float b, float c);
 void checkTriangle(float a, float b, float c);
-
+/*ex5*/
 float mathex5(float a);
 /*ex6*/
 void Addition(int a, int b);
@@ -26,6 +29,7 @@ void averageMinMax(float* a, float* b, float* c);
 /*Debut Programme*/
 
 int main(){
+	
     /*ex1*/
     printf("ex1\n");
     punishment1();
