@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include<stdbool.h>
 
+#define N 5
+
 /*Déclaration Fonction*/
 
 /*ex1*/
@@ -16,6 +18,17 @@ void cleanZeros(int arr[], unsigned int* n);
 bool isBounded(int arr[], unsigned int n);
 bool capicua(int arr[], unsigned int n);
 bool isSorted(int arr[], unsigned int n);
+bool allPrimes(int arr[], unsigned int n);
+bool allPrimesEvenIndexes(int arr[], unsigned int n);
+bool allEquals(int arr[], unsigned int n);
+bool noRepetitions(int arr[], unsigned int n);
+/*ex6*/
+void printMatrix(int matrix[N][N]);
+/*ex7*/
+void matrixSum(int A[N][N],int B[N][N],int C[N][N]);
+/*ex8*/
+void matrixMult(int A[N][N],int B[N][N],int C[N][N]);
+
 
 /*Debut Programme*/
 
@@ -44,6 +57,29 @@ int main(){
     /*ex5*/
     unsigned int n2 = 14 ;
     int arr2[14]={8,0,0,2,1,0,5,0,0,0,1,1,0,0};
+
+    /*ex6*/
+    printf("ex6\n");
+    int matrix[N][N] = {{5,4,2,5,9},{3,1,2,3,4},{5,6,7,8,9},{5,6,4,8,2},{3,1,6,7,5}};
+    printMatrix(matrix);
+    printf("\n");
+
+    /*ex7*/
+    printf("ex7\n");
+    int A[N][N] = {{5,4,2,5,9},{3,1,2,3,4},{5,6,7,8,9},{5,6,4,8,2},{3,1,6,7,5}};
+    int B[N][N] = {{5,4,2,5,9},{3,1,2,3,4},{5,6,7,8,9},{5,6,4,8,2},{3,1,6,7,5}};
+    int C[N][N] = {0};
+    matrixSum(A,B,C);
+    printMatrix(C);
+    printf("\n");
+
+    /*ex8*/
+    printf("ex8\n");
+    int C[N][N] = {0};
+    matrixMult(A,B,C);
+    printMatrix(C);
+    printf("\n");
+
 }
 
 /*Fonction*/
@@ -112,7 +148,7 @@ bool isBounded(int arr[], unsigned int n){
     for(int i=0; i<n ; i++){
      nb++;
     }
-    if (1<=nb<=100)
+    if (1<=nb && nb<=100)
     {
         return true;
     }else
@@ -137,8 +173,92 @@ bool isSorted(int arr[], unsigned int n){
         {
             return false;
         }
-        return true;
+    }
+    return true;
+}
+
+bool allPrimes(int arr[], unsigned int n){
+    for(int i=0; i<n ; i++){
+        if (arr[i] <= 1){
+            return false;
+        }
+        unsigned int k;
+        for (k=2; k*k<=arr[i]; k++){
+            if (arr[i] % k == 0){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool allPrimesEvenIndexes(int arr[], unsigned int n){
+    int isPrime;
+    for(int i=0; i<n ; i++){
+        if (arr[i] <= 1){
+            int isPrime = 0;
+        }else{
+        unsigned int k;
+        for (k=2; k*k<=arr[i]; k++){
+            if (arr[i] % k == 0){
+                int isPrime = 0;
+            }else{
+                int isPrime = 1;
+            }  
+        }
+        }
+         if (isPrime == 1){
+             if (i % 2 != 0)
+             {
+                return false;
+             }
+        }
+    }
+    return true;
+}
+
+bool allEquals(int arr[], unsigned int n){
+    for(int i=0; i<n ; i++){
+        if (arr[i] != arr[i+1])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool noRepetitions(int arr[], unsigned int n){
+    for(int i=0; i<n ; i++){
+        if (arr[i] == arr[i+1])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+/*ex6*/
+void printMatrix(int matrix[N][N]){
+    for(int i=0; i<N ; i++){
+        for(int I=0; I<N ; I++){
+        printf("%d ",matrix[i][I]);
+        }
+        printf("\n");
     }
 }
 
+void matrixSum(int A[N][N],int B[N][N],int C[N][N]){
+    for(int i=0; i<N ; i++){
+        for(int I=0; I<N ; I++){
+            C[i][I] = A[i][I] + B[i][I];
+        }
+    }
+}
 
+void matrixMult(int A[N][N],int B[N][N],int C[N][N]){
+    for(int i=0; i<N ; i++){
+        for(int I=0; I<N ; I++){
+            C[i][I] = A[i][I] * B[I][i];
+        }
+    }
+}
