@@ -38,21 +38,29 @@ int main(){
     int arr[14]={8,0,0,2,1,0,5,0,0,0,1,1,0,0};
 
     /*ex1*/
+    printf("ex1\n");
     printArray(arr, n);
+    printf("\n");
 
     /*ex2*/
+    printf("ex2\n");
+    printArray(arr,n);
     inverseArray(arr, n);
     printArray(arr,n);
+    printf("\n");
 
     /*ex3*/
+    printf("ex3\n");
     unsigned int index_min = 0 ;
     unsigned int index_max = 13 ;
     minMaxSearch(arr, n,&index_min,&index_max);
+    printf("\n");
 
     /*ex4*/
     printf("ex4\n");
     cleanZeros(arr,&n);
     printArray(arr,n);
+    printf("\n");
     
     /*ex5*/
     unsigned int n2 = 14 ;
@@ -75,9 +83,9 @@ int main(){
 
     /*ex8*/
     printf("ex8\n");
-    int C[N][N] = {0};
-    matrixMult(A,B,C);
-    printMatrix(C);
+    int C2[N][N] = {0};
+    matrixMult(A,B,C2);
+    printMatrix(C2);
     printf("\n");
 
 }
