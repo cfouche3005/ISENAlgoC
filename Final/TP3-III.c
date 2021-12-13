@@ -44,6 +44,7 @@ int main (){
 	transfer(&account1, &account3,1500000);
 	accountsBalances();
     printf("\n");
+    
     return 0;    
 }
 

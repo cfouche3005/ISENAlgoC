@@ -88,6 +88,8 @@ int main(){
     printMatrix(C2);
     printf("\n");
 
+    return 0;
+
 }
 
 /*Fonction*/
