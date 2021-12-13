@@ -110,6 +110,8 @@ int main(){
     return 0;
 }
 
+/*Fonction*/
+
 void punishment1()
 {
 	int i;

@@ -30,7 +30,9 @@ int main (){
     sortThree(&a,&b,&c);
     printf("%d %d %d\n",a,b,c);
 
-    
+
+
+    return 0;    
 }
 
 void swap(int* nb1, int* nb2){
@@ -39,6 +41,8 @@ void swap(int* nb1, int* nb2){
  *nb1 = *nb2;
  *nb2 = temp;
 }
+
+/*Fonction*/
 
 void sortThree(int* a, int* b, int* c){
     

@@ -50,7 +50,11 @@ int main(){
     printf("%d\n",iterativeBinomialCoefficient(n,k));
     printf("\n");
 
+	return 0;
+
 }
+
+/*Fonction*/
 
 unsigned int iterativeFactorial(unsigned int n){
 	int b;
