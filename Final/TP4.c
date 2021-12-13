@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 /*Déclaration Fonction*/
 
@@ -12,7 +13,9 @@ void minMaxSearch(int arr[], unsigned int n, unsigned int* index_min, unsigned i
 /*ex4*/
 void cleanZeros(int arr[], unsigned int* n);
 /*ex5*/
-int 
+bool isBounded(int arr[], unsigned int n);
+bool capicua(int arr[], unsigned int n);
+bool isSorted(int arr[], unsigned int n);
 
 /*Debut Programme*/
 
@@ -37,6 +40,10 @@ int main(){
     printf("ex4\n");
     cleanZeros(arr,&n);
     printArray(arr,n);
+    
+    /*ex5*/
+    unsigned int n2 = 14 ;
+    int arr2[14]={8,0,0,2,1,0,5,0,0,0,1,1,0,0};
 }
 
 /*Fonction*/
@@ -56,8 +63,6 @@ void inverseArray(int arr[], unsigned int n){
         arr[i] = arr[n-1-i];
         arr[n-1-i] = temp;
     }
-
-    printf("\n");
 }
 
 /*ex3*/
@@ -102,3 +107,38 @@ void cleanZeros(int arr[], unsigned int* n){
 }
 
 /*ex5*/
+bool isBounded(int arr[], unsigned int n){
+    int nb = 0;
+    for(int i=0; i<n ; i++){
+     nb++;
+    }
+    if (1<=nb<=100)
+    {
+        return true;
+    }else
+    {
+        return false;
+    }
+}
+
+bool capicua(int arr[], unsigned int n){
+     for(int i=0 ; i<(n/2) ; i++){
+        if (arr[i] != arr[n-1-i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool isSorted(int arr[], unsigned int n){
+    for(int i=0; i<n ; i++){
+        if (arr[i] > arr[i+1])
+        {
+            return false;
+        }
+        return true;
+    }
+}
+
+
