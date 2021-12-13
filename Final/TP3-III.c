@@ -23,12 +23,32 @@ int main (){
     printf("%d %d\n",nb1,nb2);
 
     /*ex2*/
-    int a = 2;
-    int b = 1;
-    int c = 9;
+    int a = 9;
+    int b = 8;
+    int c = 1;
     printf("%d %d %d\n",a,b,c);
     sortThree(&a,&b,&c);
     printf("%d %d %d\n",a,b,c);
 
     
+}
+
+void swap(int* nb1, int* nb2){
+ int temp;
+ temp = *nb1;
+ *nb1 = *nb2;
+ *nb2 = temp;
+}
+
+void sortThree(int* a, int* b, int* c){
+    
+	if(*a >= *b){
+		swap(a, b);
+	}
+	if(*a >= *c){
+		swap(a, c);
+	}
+	if(*b >= *c){
+		swap(b, c);
+	}
 }
