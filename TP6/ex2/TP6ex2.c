@@ -4,18 +4,21 @@
 
 int main (int argc, char** argv) {
     int nbmot = atoi(argv[1]);
-    char mot;
-    char result;
+    char mot[nbmot][32];
     for (int i = 0; i== nbmot; i++) {
-        char temp;
         printf("Enter a string :");
-        scanf("%s",temp);
-        strcat (mot,temp);
+        scanf("%s",&mot[i]);
+
     }
-    for(int i = nbmot; i>0; i--){
+    int motlong = 0;
+    for(int i = 0; i<nbmot; i++){
+        motlong += strlen(mot[i])+1;
+    }
+    char result[motlong];
+    for(int i = nbmot-1; i>=0; i--){
         strcat(result, " ");
         strcat(result, mot[i]);
     }
     printf("The sentence is : %c",result);
-    return 0
+    return 0;
 }
