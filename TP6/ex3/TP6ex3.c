@@ -1,11 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 char capitalLetters(char *capital);
+bool palindrome(char *argv);
 
 int main (int argc, char** argv) {
     printf("%c/n",capitalLetters(*argv[1]));
+
 }
 char capitalLetters(char *capital){
     int i = 0;
@@ -16,4 +19,15 @@ char capitalLetters(char *capital){
         i++;
     }
     return capital;
+}
+
+bool palindrome(char *argv){
+    int i;
+    int j;
+    for(i=0,j=strlen(argv)-1;i<j;i++,j--){
+        if(argv[i]!=argv[j]){
+            return false;
+        }
+    }
+    return true;
 }
