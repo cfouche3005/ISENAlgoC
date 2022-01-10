@@ -7,8 +7,8 @@ char capitalLetters(char *capital);
 bool palindrome(char *argv);
 
 int main (int argc, char** argv) {
-    printf("%c/n",capitalLetters(*argv[1]));
-
+    printf("%d", palindrome(argv[1]));
+    return 0;
 }
 char capitalLetters(char *capital){
     int i = 0;
@@ -20,7 +20,6 @@ char capitalLetters(char *capital){
     }
     return capital;
 }
-
 bool palindrome(char *argv){
     int i;
     int j;
