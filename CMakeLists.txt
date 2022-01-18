@@ -4,4 +4,4 @@ project(ISENAlgoC C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(ISENAlgoC
-        TP7/TP7.c)
+         TP7/ex2/TP7ex22.c )
