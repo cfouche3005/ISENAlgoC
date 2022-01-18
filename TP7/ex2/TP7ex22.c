@@ -15,10 +15,7 @@ int main (int argc, char** argv) {
     for (int i = 1; i < argc; ++i) {
         if (atoi(argv[i]) % 2 == 0) {
             taillepairalloc++;
-        }
-    }
-    for (int i = 1; i < argc; ++i) {
-        if (atoi(argv[i]) % 2 != 0) {
+        } else {
             tailleimpairalloc++;
         }
     }
@@ -26,17 +23,12 @@ int main (int argc, char** argv) {
     pair = malloc ((taillepairalloc)*sizeof (int) ) ;
     impair = malloc ((tailleimpairalloc)*sizeof (int) ) ;
 
-    if (pair != NULL) {
+    if ((pair != NULL) && (impair != NULL)) {
         for (int i = 1; i < argc; ++i) {
             if (atoi(argv[i]) % 2 == 0) {
                 pair[taillepair] = atoi(argv[i]);
                 taillepair++;
-            }
-        }
-    }
-    if (impair != NULL) {
-        for (int i = 1; i < argc; ++i) {
-            if (atoi(argv[i]) % 2 != 0) {
+            } else {
                 impair[tailleimpair] = atoi(argv[i]);
                 tailleimpair++;
             }

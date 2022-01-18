@@ -8,24 +8,22 @@ int main (int argc, char** argv) {
     int* impair;
     int taillepair = 0;
     int tailleimpair = 0;
+
     pair = malloc ((argc-1)*sizeof (int) ) ;
     impair = malloc ((argc-1)*sizeof (int) ) ;
-    if (pair != NULL) {
+
+    if ((pair != NULL) && (impair != NULL)) {
         for (int i = 1; i < argc; ++i) {
             if (atoi(argv[i]) % 2 == 0) {
                 pair[taillepair] = atoi(argv[i]);
                 taillepair++;
+            } else {
+                    impair[tailleimpair] = atoi(argv[i]);
+                    tailleimpair++;
             }
         }
     }
-    if (impair != NULL) {
-        for (int i = 1; i < argc; ++i) {
-            if (atoi(argv[i]) % 2 != 0) {
-                impair[tailleimpair] = atoi(argv[i]);
-                tailleimpair++;
-            }
-        }
-    }
+
     for(int i = 0; i< taillepair; i++){
         printf("%d ",pair[i]);
     }
