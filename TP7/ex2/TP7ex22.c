@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+int** matrixSum(int** A, int** B, unsigned int n);
+
 int main (int argc, char** argv) {
     int* pair;
     int* impair;
