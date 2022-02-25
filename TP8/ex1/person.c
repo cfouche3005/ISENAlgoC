@@ -26,14 +26,23 @@ struct Person* createPerson(char newName[32],int newAge, float newHeight){
 }
 
 void editName(struct Person* p, char newName[32]){
-	
+
+    free(p->name);
+    p->name = malloc((strlen(newName)+1)*sizeof(char));
+    if(p->name != NULL){
+        stpcpy(p->name,newName);
+    }
 }
 
 void editAge(struct Person* p, int newAge){
 
+    p->age = newAge;
+
 }
 
 void editHeight(struct Person* p, float newHeight){
+
+    p->height = newHeight;
 
 }
 
@@ -56,6 +65,10 @@ float getHeight(struct Person* p){
 // Suppression
 
 void deletePerson(struct Person* p){
+
+    free(p->name);
+    free(p);
+    p = NULL;
 
 }
 
