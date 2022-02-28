@@ -26,7 +26,7 @@ bool isListEmpty(struct Cell* head){
 
 int getItemPos(struct Cell* head, unsigned int position, bool* valid){
     struct Cell* iter = head;
-    for (int i = 0; i < position; ++i) {
+    for (int i = 1; i < position; ++i) {
         iter = iter -> next;
         if (iter == NULL){
             valid = false;
@@ -35,4 +35,8 @@ int getItemPos(struct Cell* head, unsigned int position, bool* valid){
     }
     valid = true;
     return iter ->value;
+}
+
+struct Cell* deleteFirst(struct Cell* head){
+    free()
 }
