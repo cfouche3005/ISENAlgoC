@@ -24,5 +24,12 @@ int main() {
     printf("\n");
 
     printf("%u\n", listSize(cell));
+
+    cell = addItemPos(cell,79,5,&test);
+
+    printList(cell);
+    printf("\n");
+
+    printf("%u\n", listSize(cell));
 }
 

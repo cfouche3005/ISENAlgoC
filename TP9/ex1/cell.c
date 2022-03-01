@@ -73,8 +73,21 @@ unsigned int listSize(struct Cell* head){
 }
 
 struct Cell* addItemPos(struct Cell* head, int val, unsigned int pos, bool* valid) {
-    if(listSize(head)<pos){
-        valid = false;
-
+    struct Cell* iter = head;
+    if (pos == 1) {
+        return addFirst(head, val);
+    } else {
+        if (listSize(head) < pos) {
+            valid = false;
+            return head;
+        } else {
+            for (int i = 2; i < pos-1; ++i) {
+                iter = iter -> next;
+            }
+            struct Cell* new = createCell(val);
+            new -> next = iter;
+            iter -> next = new;
+        }
     }
+    return head;
 }
