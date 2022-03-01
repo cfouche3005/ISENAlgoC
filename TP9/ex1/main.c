@@ -4,17 +4,25 @@
 #include <string.h>
 
 #include "cell.h"
+int main() {
+    struct Cell* cell = createCell(50);
+        for (int i = 51; i < 61; ++i) {
+            cell = addFirst(cell, i);
+        }
 
-    int main(int argc, char** argv) {
-    struct Cell* cell = createCell(53);
-    cell = addFirst(cell, 52);
-    cell = addFirst(cell, 51);
+    printf("%i\n", isListEmpty(cell));
 
     bool test;
+    for (int i = 1; i < 12; ++i) {
+        printf("%i ", getItemPos(cell,i,&test));
+        }
+    printf("\n");
 
-    printf("%i\n", getItemPos(cell,1,&test));
-    printf("%i\n", getItemPos(cell,2,&test));
-    printf("%i\n", getItemPos(cell,3,&test));
-    printf("%i\n", getItemPos(cell,4,&test));
+    cell = deleteFirst(cell);
 
+    printList(cell);
+    printf("\n");
+
+    printf("%u\n", listSize(cell));
 }
+

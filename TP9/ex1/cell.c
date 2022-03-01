@@ -21,7 +21,7 @@ struct Cell* addFirst(struct Cell* head, int value){
 }
 
 bool isListEmpty(struct Cell* head){
-    return head = NULL;
+    return head == NULL;
 }
 
 int getItemPos(struct Cell* head, unsigned int position, bool* valid){
@@ -38,5 +38,43 @@ int getItemPos(struct Cell* head, unsigned int position, bool* valid){
 }
 
 struct Cell* deleteFirst(struct Cell* head){
-    free()
+    struct Cell* temp = head -> next;
+    free(head);
+    return temp;
+}
+
+void printList(struct Cell* head){
+    struct Cell* iter = head;
+    if (isListEmpty(head) == 1){
+        printf("NULL");
+    }else {
+        while (iter->next != NULL) {
+            printf("%i -> ", iter->value);
+            iter = iter->next;
+        }
+        printf("%i -> ", iter->value);
+        printf("NULL");
+    }
+}
+
+unsigned int listSize(struct Cell* head){
+    struct Cell* iter = head;
+    unsigned int i = 0 ;
+    if (isListEmpty(head)){
+        return 0;
+    }else {
+        while (iter->next != NULL) {
+            i++;
+            iter = iter->next;
+        }
+    }
+    i++;
+    return i;
+}
+
+struct Cell* addItemPos(struct Cell* head, int val, unsigned int pos, bool* valid) {
+    if(listSize(head)<pos){
+        valid = false;
+
+    }
 }
