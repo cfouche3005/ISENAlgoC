@@ -31,5 +31,18 @@ int main() {
     printf("\n");
 
     printf("%u\n", listSize(cell));
+
+    cell = deleteItemPos(cell,5,&test)  ;
+
+    printList(cell);
+    printf("\n");
+
+    printf("%u\n", listSize(cell));
+
+    deleteAll(cell);
+    printList(cell);
+    printf("\n");
+
+    printf("%u\n", listSize(cell));
 }
 

@@ -49,10 +49,10 @@ void printList(struct Cell* head){
         printf("NULL");
     }else {
         while (iter->next != NULL) {
-            printf("%i -> ", iter->value);
+            printf("%d -> ", iter->value);
             iter = iter->next;
         }
-        printf("%i -> ", iter->value);
+        printf("%d -> ", iter->value);
         printf("NULL");
     }
 }
@@ -77,17 +77,69 @@ struct Cell* addItemPos(struct Cell* head, int val, unsigned int pos, bool* vali
     if (pos == 1) {
         return addFirst(head, val);
     } else {
-        if (listSize(head) < pos) {
+        if (pos<0 && listSize(head) < pos) {
             valid = false;
             return head;
         } else {
-            for (int i = 2; i < pos-1; ++i) {
+            for (int i = 0; i < pos-1; ++i) {
                 iter = iter -> next;
             }
             struct Cell* new = createCell(val);
-            new -> next = iter;
+            new -> next = iter ->next;
             iter -> next = new;
+            return head;
         }
+    }
+}
+
+struct Cell* deleteItemPos(struct Cell* head, unsigned int position, bool* valid) {
+    struct Cell* del = head;
+    struct Cell* before = head;
+    struct Cell* after = head;
+    if (position == 1) {
+        return deleteFirst(head);
+    } else {
+        if (position<0 && listSize(head) < position) {
+            valid = false;
+            return head;
+        } else {
+            for (int i = 0; i < position-1; ++i) {
+                del = del -> next;
+            }
+            for (int i = 0; i < position; ++i) {
+                after = after -> next;
+            }
+            for (int i = 0; i < position-2; ++i) {
+                before = before -> next;
+            }
+            free(del);
+            before -> next = after;
+            return head;
+        }
+    }
+}
+
+void deleteAll(struct Cell** head){
+    while(*head != NULL){
+        *head = deleteFirst(*head);
+    }
+    *head = NULL;
+}
+
+struct Cell* createListFromArray(int A[], unsigned int size){
+    if (size == 0) {
+        return NULL;
+    }
+    struct Cell* ListFromArray = A[size-1];
+    for (int i = size-1; i > 0; --i) {
+        ListFromArray = addFirst(ListFromArray,A[i-1]);
+    }
+    return ListFromArray;
+}
+
+struct Cell* belong(struct Cell* head, int value) {
+    while (head!=NULL && head->value!=value) {
+        head = head->next;
     }
     return head;
 }
