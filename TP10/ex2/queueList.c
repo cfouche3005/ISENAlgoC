@@ -20,12 +20,12 @@ void enqueue(struct Queue* q, int item, bool* valid){
 }
 
 int head(struct Queue* q, bool* valid){
-    return getItemPos(q->l,queueSize(q->l),valid);
+    return getItemPos(q->l,queueSize(q),valid);
 }
 
 int dequeue(struct Queue* q, bool* valid){
-    int result = getItemPos(q->l,queueSize(q->l),valid);
-    deleteItemPos(q->l,queueSize(q->l), valid);
+    int result = getItemPos(q->l,queueSize(q),valid);
+    deleteItemPos(q->l,queueSize(q), valid);
     return result;
 }
 
@@ -39,16 +39,20 @@ bool isQueueEmpty(struct Queue* q){
 
 void printQueue(struct Queue* q){
     struct Cell *iter = q->l->head;
-    if (isQueueEmpty(q) == 1) {
-        printf("rear –> NULL <– front");
-    } else {
-        printf("rear –> %d - ",iter->value);
-        iter = iter->next;
-        while (iter->next != NULL) {
-            printf("%d - ", iter->value);
+    if (iter == NULL){
+        printf("NULL");
+    }else{
+        if (isQueueEmpty(q) == 1) {
+            printf("rear –> NULL <– front");
+        } else {
+            printf("rear –> %d - ",iter->value);
             iter = iter->next;
+            while (iter->next != NULL) {
+                printf("%d - ", iter->value);
+                iter = iter->next;
+            }
+            printf("%d <– front", iter->value);
         }
-        printf("%d <– front", iter->value);
     }
 }
 

@@ -52,7 +52,7 @@ void deleteFirst(struct List *l) {
     struct Cell *temp = l->head->next;
     free(l->head);
     l->head = temp;
-    l->size - 1;
+    l->size = l->size - 1;
 }
 
 void printList(struct List *l) {

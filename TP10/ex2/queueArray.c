@@ -48,18 +48,23 @@ bool isQueueEmpty(struct Queue* q){
 }
 
 void printQueue(struct Queue* q){
-    if (isQueueEmpty(q) == 1) {
-        printf("rear –> NULL <– front");
-    }
-    else{
-        printf("rear –> %d - ",q->elems[q->rear]);
-        for (int i = q -> rear; i > q -> front; i--){
-            printf("%d - ",q->elems[i]);
+    if(q==NULL){
+        printf("NULL");
+    }else{
+        if (isQueueEmpty(q) == 1) {
+            printf("rear –> NULL <– front");
         }
-        printf("%d <– front",q->elems[q->front]);
+        else{
+            printf("rear –> %d - ",q->elems[q->rear]);
+            for (int i = q -> rear; i > q -> front; i--){
+                printf("%d - ",q->elems[i]);
+            }
+            printf("%d <– front",q->elems[q->front]);
+        }
     }
 }
 
 void deleteQueue(struct Queue** q){
     free(*q);
+    *q=NULL;
 }

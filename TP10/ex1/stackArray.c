@@ -47,15 +47,20 @@ bool isStackEmpty(struct Stack* s){
 }
 
 void printStack(struct Stack* s) {
-    if (isStackEmpty(s) == 1 ) {
-        printf("NULL <– top");
-    }
-    else{
-        printf("%d  <– top\n",s->elems[s->size-1]);
-        for (int i = stackSize(s)-2; i >= 0; i--){
-            printf("%d\n",s->elems[i]);
+    if ( s == NULL){
+        printf("NULL");
+    }else{
+        if (isStackEmpty(s) == 1 ) {
+            printf("NULL <– top");
+        }
+        else{
+            printf("%d  <– top\n",s->elems[s->size-1]);
+            for (int i = stackSize(s)-2; i >= 0; i--){
+                printf("%d\n",s->elems[i]);
+            }
         }
     }
+
 }
 
 void deleteStack(struct Stack** s){
