@@ -54,6 +54,7 @@ void printStack(struct Stack* s){
 }
 
 void deleteStack(struct Stack** s){
-    deleteList(*s->l);
-
+    deleteList(&((*s)->l));
+    free(*s);
+    s = NULL;
 }
