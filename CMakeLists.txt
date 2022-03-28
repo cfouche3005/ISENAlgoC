@@ -4,4 +4,4 @@ project(ISENAlgoC C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(ISENAlgoC
-        TP9/ex2/main.c TP9/ex2/list.c TP9/ex2/list.h)
+        TP10/ex1/stackList.c TP10/ex1/main.c TP10/ex1/list.c)

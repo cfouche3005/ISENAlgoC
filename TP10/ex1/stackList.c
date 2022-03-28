@@ -25,7 +25,7 @@ int top(struct Stack* s, bool* valid){
 }
 
 int pop(struct Stack* s, bool* valid){
-    int result = top(s->l,valid);
+    int result = top(s,valid);
     deleteFirst(s->l);
     return result;
 }
