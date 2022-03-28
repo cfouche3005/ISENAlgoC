@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "stackList.h"
+#include "stackArray.h"
 int main() {
     struct Stack* testStack;
     //1--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -48,10 +48,7 @@ int main() {
     push(testStack, 69, &valid);
     push(testStack, 100, &valid);
     push(testStack, 69, &valid);
-    push(testStack, 100, &valid);
-    push(testStack, 69, &valid);
-    push(testStack, 100, &valid);
-    push(testStack, 69, &valid);
+
     push(testStack, 100, &valid);
     push(testStack, 69, &valid);
     push(testStack, 63636, &valid);

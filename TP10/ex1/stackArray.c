@@ -27,14 +27,15 @@ int top(struct Stack* s, bool* valid) {
         *valid = false;
     } else {
         *valid = true;
-        return s->elems[stackSize(s) - 1];
+        return s->elems[s->size-1];
     }
 }
 
 int pop(struct Stack* s, bool* valid){
-    top(s,valid);
-    s-> elems[stackSize(s) - 1] = 0;
-    s-> size--;
+    int result = top(s,valid);
+    s-> elems[s->size-1] = 0;
+    s-> size= s-> size -1;
+    return result;
 }
 
 unsigned int stackSize(struct Stack* s){
@@ -46,12 +47,12 @@ bool isStackEmpty(struct Stack* s){
 }
 
 void printStack(struct Stack* s) {
-    if (isStackEmpty(s) == 1) {
+    if (isStackEmpty(s) == 1 ) {
         printf("NULL <– top");
     }
     else{
-        printf("%d  <– top\n",s->elems[0]);
-        for (int i = 1; i < stackSize(s); i++){
+        printf("%d  <– top\n",s->elems[s->size-1]);
+        for (int i = stackSize(s)-2; i >= 0; i--){
             printf("%d\n",s->elems[i]);
         }
     }
@@ -59,4 +60,5 @@ void printStack(struct Stack* s) {
 
 void deleteStack(struct Stack** s){
     free(*s);
+    *s = NULL;
 }
