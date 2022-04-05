@@ -1,0 +1,18 @@
+Chez Wendy
+90 3
+Chinois
+95 3
+Les delices de Deli
+90 2
+Wienerschnitzel
+70 6
+Del Taco
+50 5
+KFC
+55 5
+Carl's Jr.
+20 1
+La tomate rouge
+75 2
+Le restaurant du metro
+30 2
