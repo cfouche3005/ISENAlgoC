@@ -4,4 +4,4 @@ project(ISENAlgoC C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(ISENAlgoC
-         TP10/ex2/queueArray.c TP10/ex2/main.c )
+         TP12/BinaryTree.c TP12/main.c )
