@@ -48,5 +48,3 @@ void deleteLeaf(struct NodeTree** tree){
         }
     }
 }
-
-
