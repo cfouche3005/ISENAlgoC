@@ -36,15 +36,68 @@ struct NodeTree* right(struct NodeTree* tree){
 }
 
 void deleteLeaf(struct NodeTree** tree){
-    if (isTreeEmpty(left(*tree)) && isTreeEmpty(right(*tree))){
-        free(*tree);
-    }else{
-        if (isTreeEmpty(right(*tree))){
-            deleteLeaf(&((*tree)->left));
+    if(!isTreeEmpty(*tree)){
+        if (isTreeEmpty(left(*tree)) && isTreeEmpty(right(*tree))){
+            free(*tree);
         }else{
-            if (isTreeEmpty(left(*tree))){
-                deleteLeaf(&((*tree)->right));
+            if (isTreeEmpty(right(*tree))){
+                deleteLeaf(&((*tree)->left));
+            }else{
+                if (isTreeEmpty(left(*tree))){
+                    deleteLeaf(&((*tree)->right));
+                }
             }
         }
+    }
+}
+
+void deleteTree(struct NodeTree** tree){
+    while (!isTreeEmpty(*tree)){
+        deleteLeaf(tree);
+    }
+}
+
+unsigned int numberNodes(struct NodeTree* tree){
+    if(!isTreeEmpty(tree)){
+        if (isTreeEmpty(tree)){
+            return 0;
+
+        }else{
+            return 1 + numberNodes(left(tree)) + numberNodes(right(tree));
+        }
+
+    }
+}
+
+unsigned int numberLeaves(struct NodeTree* tree){
+    if(!isTreeEmpty(tree)){
+        if (isTreeEmpty(left(tree)) && isTreeEmpty(right(tree))){
+            return 1;
+        }else{
+            return numberLeaves(right(tree)) + numberLeaves(left(tree));
+        }
+    }
+}
+
+unsigned int numberInternalNodes(struct NodeTree* tree){
+    return numberNodes(tree) - numberLeaves(tree);
+}
+
+int sumValues(struct NodeTree* tree){
+    if(!isTreeEmpty(tree)){
+        if (isTreeEmpty(tree)){
+            return 0;
+
+        }else{
+            return root(tree) + sumValues(left(tree)) + sumValues(right(tree));
+        }
+
+    }
+}
+
+
+unsigned int height(struct NodeTree* tree){
+    if(!isTreeEmpty(tree)){
+
     }
 }
