@@ -57,6 +57,30 @@ void deleteTree(struct NodeTree** tree){
     }
 }
 
+void preorder(struct NodeTree* tree){
+    if (!isTreeEmpty(tree)){
+        printf(root(tree));
+        preorder(left(tree));
+        preorder(right(tree));
+    }
+}
+
+postorder(struct NodeTree* tree){
+    if (!isTreeEmpty(tree)){
+        postorder(left(tree));
+        postorder(right(tree));
+        printf(root(tree));
+    }
+}
+
+void inorder(struct NodeTree* tree){
+    if (!isTreeEmpty(tree)){
+        inorder(left(tree));
+        printf(root(tree));
+        inorder(right(tree));
+    }
+}
+
 unsigned int numberNodes(struct NodeTree* tree){
     if(!isTreeEmpty(tree)){
         if (isTreeEmpty(tree)){
@@ -101,3 +125,15 @@ unsigned int height(struct NodeTree* tree){
 
     }
 }
+
+bool belongs(struct NodeTree* tree, int x){
+    if(!isTreeEmpty(tree)){
+        if (root(tree)==x){
+            return true;
+        }else{
+            return belongs(right(tree),x) || belongs(left(tree),x);
+        }
+    }
+    return false;
+}
+
