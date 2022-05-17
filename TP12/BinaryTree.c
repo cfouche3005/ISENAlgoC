@@ -136,6 +136,19 @@ bool belongs(struct NodeTree* tree, int x){
     }
     return false;
 }
+
+struct NodeTree* mirror(struct NodeTree* tree){
+
+    if(isTreeEmpty(tree)){
+
+        return createEmptyTree();
+    }
+    else{
+
+        return bin(mirror(right(tree)), root(tree), mirror(left(tree)));
+    }
+}
+
 bool equals(struct NodeTree* tree1, struct NodeTree* tree2){
     if(isTreeEmpty(tree1)==isTreeEmpty(tree2)){
         return true;
