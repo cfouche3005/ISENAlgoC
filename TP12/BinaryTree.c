@@ -136,4 +136,24 @@ bool belongs(struct NodeTree* tree, int x){
     }
     return false;
 }
+bool equals(struct NodeTree* tree1, struct NodeTree* tree2){
+    if(isTreeEmpty(tree1)==isTreeEmpty(tree2)){
+        return true;
+    }else{
+        if(isTreeEmpty(tree1)!=isTreeEmpty(tree2)){
+            return false;
+        }
+        return root(tree1)==root(tree2) && equals(right(tree1),right(tree2)) && equals(left(tree1),left(tree2));
+    }
+}
 
+
+unsigned int numberRepetitions(struct NodeTree* tree, int x){
+    if(!isTreeEmpty(tree)){
+        if (root(tree)==x){
+            return 1 + numberRepetitions(right(tree),x) + numberRepetitions(left(tree),x);
+        }else{
+            return numberRepetitions(right(tree),x) + numberRepetitions(left(tree),x);
+        }
+    }
+}

@@ -22,6 +22,8 @@ struct NodeTree* right(struct NodeTree* tree);
 void deleteLeaf(struct NodeTree** tree);
 void deleteTree(struct NodeTree** tree);
 
+void preorder(struct NodeTree* tree);
+
 
 
 
